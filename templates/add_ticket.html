@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add ticket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Report a new problem</h1>
+            <a href="{{ url_for('index') }}" class="btn-add">Back</a>
+        </div>
+
+        <form method="POST" action="/add">
+            <div style="margin-bottom: 20px;">
+                <label for="title"><b>Short Title:</b></label><br><br>
+                <input type="text" id="title" name="title" required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label for="description"><b>Detailed Description:</b></label><br><br>
+                <textarea id="description" name="description" rows="5" required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+            </div>
+
+            <input type="hidden" name="user_id" value="1">
+            
+            <button type="submit" class="btn-add" style="border: none; cursor: pointer;">Send</button>
+        </form>
+    </div>
+
+</body>
+</html>
