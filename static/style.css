@@ -1,0 +1,73 @@
+ :root {
+            --background-peach: #ffead8;
+            --dark-green: #264634;
+            --white: #ffffff;
+            --dark-text: #302c28;
+        }
+
+        body {
+            background-color: var(--background-peach);
+            color: var(--dark-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .capycontainer {
+            padding: 30px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--background-peach);
+            padding-bottom: 20px;
+        }
+
+        .mascota {
+            height: 120px; /* Dimensiunea mascotei tale */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--dark-green);
+            color: var(--white);
+        }
+
+        .btn-add {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .btn-add:hover {
+            background-color: #1c3030;
+        }
