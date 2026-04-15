@@ -88,6 +88,18 @@ def logout():
     session.clear()
     return redirect(url_for('login'))
 
+@app.route('/resolve/<int:ticket_id>')
+def resolve_ticket(ticket_id):
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE tickets SET status = 'Resolved' WHERE id = %s", (ticket_id,))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return redirect(url_for('index'))
+
 if __name__=='__main__':
     app.run(debug=True)
 

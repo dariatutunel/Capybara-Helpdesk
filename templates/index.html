@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your little helpdesk</title>
+    <title>Capy Helpdesk</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div  class="capycontainer">
-        <img src="{{ url_for('static', filename='images/capybara.png') }}" alt="Capybara" class="mascota">
-    </div>
+   
+        <img src="{{ url_for('static', filename='capy_list.png') }}" alt="Capybara" class="capy">
+  
     <div class="container">
         <div class="header">
             <div>
@@ -23,6 +23,7 @@
                     <th>ID</th>
                     <th>Problem</th>
                     <th>Description</th>
+                    <th>User ID</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -32,17 +33,28 @@
                     <td>#{{ ticket.id }}</td>
                     <td>{{ ticket.title }}</td>
                     <td>{{ ticket.description }}</td>
-                    <td>{{ ticket.status }}</td>
-                </tr>
+                    <td>{{ ticket.user_id}}</td>
+                <td>
+                {% if ticket.status == 'Resolved' %}
+                    <span style="color: green;">✅ Resolved</span>
                 {% else %}
-                <tr>
-                    <td colspan="4">No tickets for now.</td>
-                </tr>
-                {% endfor %}
+                    <span style="color: orange;">⏳ Resolve</span>
+                {% endif %}
+            </td>
+            <td>
+                {% if ticket.status != 'Resolved' %}
+                    <a href="{{ url_for('resolve_ticket', ticket_id=ticket.id) }}" class="btn-resolve">Done</a>
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+</tbody>
             </tbody>
         </table>
     </div>
-    <a href="/logout" style="margin-left: 10px; color: #888;">Logout</a>
+    <a href="/logout" style="margin-left: 10px; color: #264634;">Logout</a>
 
 </body>
 </html>
